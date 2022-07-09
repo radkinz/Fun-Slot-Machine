@@ -62,6 +62,12 @@ const characters = {
             console.log("Alwinfy")
         }
     },
+    Jinhee: {
+        classification: 'prefrosh',
+        bonus: () => {
+            console.log("APPLEEE")
+        }
+    },
     Reagan: {
         classification: 'prefrosh',
         bonus: () => {
