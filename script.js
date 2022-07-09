@@ -32,6 +32,12 @@ const characters = {
             console.log("LUNAAAA")
         }
     },
+    Eldar: {
+        classification: 'boomer',
+        bonus: () => {
+            console.log("ELDARRRRRRRR")
+        }
+    },
     Andi: {
         classification: 'boomer',
         bonus: () => {
