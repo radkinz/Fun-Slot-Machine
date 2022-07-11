@@ -10,128 +10,156 @@ const outcomes = {
 const characters = {
     Fig: {
         classification: 'Fig',
+        src: 'Fig.png',
         bonus: () => {
             console.log("FIGGGGGG")
         }
     },
     Esti: {
         classification: 'Esti',
+        src: 'Esti.png',
         bonus: () => {
             console.log("ESTIIIIII")
         }
     },
     Luna: {
         classification: 'boomer',
+        src: 'Luna.png',
         bonus: () => {
             console.log("LUNAAAA")
         }
     },
     John: {
         classification: 'boomer',
+        src: 'John.png',
         bonus: () => {
             console.log("LUNAAAA")
         }
     },
     Eldar: {
         classification: 'boomer',
+        src: 'Eldar.png',
         bonus: () => {
             console.log("ELDARRRRRRRR")
         }
     },
     Andi: {
         classification: 'boomer',
+        src: 'Andi.png',
         bonus: () => {
             console.log("ANDIIIIII")
         }
     },
     Anhad: {
         classification: 'boomer',
+        src: 'Anhad.png',
         bonus: () => {
             console.log("ANHADDDDDD")
         }
     },
     Mu: {
         classification: 'boomer',
+        src: 'Mu.png',
         bonus: () => {
             console.log("MUUUU")
         }
     },
-    uM: {
-        classification: 'boomer',
-        bonus: () => {
-            console.log("uMMMMMM")
-        }
-    },
     Alwinfy: {
         classification: 'boomer',
+        src: 'Alwinfy.png',
         bonus: () => {
             console.log("Alwinfy")
         }
     },
     Jinhee: {
         classification: 'prefrosh',
+        src: 'Jinhee.png',
         bonus: () => {
             console.log("APPLEEE")
         }
     },
     Reagan: {
         classification: 'prefrosh',
+        src: 'Reagan.gif',
         bonus: () => {
             console.log("REAGANNNNNN")
         }
     },
     Twin: {
         classification: 'prefrosh',
+        src: 'Twin.png',
         bonus: () => {
             console.log("TWINNNNNNNNN")
         }
     },
     Bob: {
         classification: 'prefrosh',
+        src: 'Bob.png',
         bonus: () => {
             console.log("BOBBBBBB")
         }
     },
     Petru: {
         classification: 'prefrosh',
+        src: 'Petru.png',
         bonus: () => {
             console.log("PETRUUUUUUUUUU")
         }
     },
     Hector: {
         classification: 'prefrosh',
+        src: 'Hector.png',
         bonus: () => {
             console.log("HECTOESSSSSSSSSSSSS ;)")
         }
     },
     Bread: {
         classification: 'prefrosh',
+        src: 'Bread.png',
         bonus: () => {
             console.log("BREADDDDD")
         }
     },
     Arthur: {
         classification: 'prefrosh',
+        src: 'Arthur.png',
         bonus: () => {
             console.log("ARTHURRRRR")
         }
     },
     Annika: {
         classification: 'prefrosh',
+        src: 'Annika.png',
         bonus: () => {
             console.log("ANNIKA")
         }
     },
     Woooo: {
         classification: 'boomer',
+        src: 'woo.gif',
         bonus: () => {
             console.log("WOOOOOOOOOOO")
         }
     },
     Maggie: {
         classification: 'prefrosh',
+        src: 'Maggie.png',
         bonus: () => {
             console.log("MAGGGSSSSS")
+        }
+    },
+    Alan: {
+        classification: 'boomer',
+        src: 'Alan.jpg',
+        bonus: () => {
+            console.log("ALANNNNN")
+        }
+    },
+    Jebby: {
+        classification: 'boomer',
+        src: 'Jebby.png',
+        bonus: () => {
+            console.log("JEBBYYYYYY")
         }
     }
 }
@@ -307,10 +335,14 @@ function init(firstInit = true, groups = 1, duration = 1, slot_result_names = []
 
         for (let i = pool.length - 1; i >= 0; i--) {
             const box = document.createElement("div");
+            const image_cont = document.createElement("div")
             box.classList.add("box");
             box.style.width = door.clientWidth + "px";
             box.style.height = door.clientHeight + "px";
+            box.innerHTML += pool[i]
             if (pool.length > 1 && i != 0) {
+                image_cont.classList.add("imageContainer")
+                image_cont.innerHTML = "<img src='./images/" + characters[pool[i]].src + "'>"; //add image
                 if (characters[pool[i]].classification == "boomer") {
                     box.style.color = "purple";
                 } else if (characters[pool[i]].classification == "prefrosh") {
@@ -318,8 +350,9 @@ function init(firstInit = true, groups = 1, duration = 1, slot_result_names = []
                 } else {
                     box.style.color = "#ffaa18";
                 }
+
+                box.appendChild(image_cont);
             }
-            box.textContent = pool[i];
             boxesClone.appendChild(box);
         }
         boxesClone.style.transitionDuration = `${duration > 0 ? duration : 1}s`;
