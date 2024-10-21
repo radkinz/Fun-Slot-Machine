@@ -86,7 +86,7 @@ function grab_outcome() {
 }
 
 //UI code
-let items = [].concat(boomers, prefrosh)
+let items = [].concat(celeste, horse, putz)
 
 const doors = document.querySelectorAll(".door");
 document.querySelector("#spinner").addEventListener("click", spin_handle);
@@ -179,9 +179,9 @@ function init(firstInit = true, groups = 1, duration = 1, slot_result_names = []
             if (pool.length > 1 && i != 0) {
                 image_cont.classList.add("imageContainer")
                 image_cont.innerHTML = "<img src='./images/" + characters[pool[i]].src + "'>"; //add image
-                if (characters[pool[i]].classification == "boomer") {
+                if (characters[pool[i]].classification == "celeste") {
                     box.style.color = "purple";
-                } else if (characters[pool[i]].classification == "prefrosh") {
+                } else if (characters[pool[i]].classification == "horse") {
                     box.style.color = "#2acdff";
                 } else {
                     box.style.color = "#ffaa18";
