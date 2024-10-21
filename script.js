@@ -46,11 +46,11 @@ function grab_slot() {
     let slot_classification = possibilities[Math.floor(Math.random() * possibilities.length)];
 
     if (slot_classification == 'celeste') {
-        return [categories[Celeste].src[Math.floor(Math.random() * categories[Celeste].src.length)], slot_classification]
+        return [categories.Celeste.src[Math.floor(Math.random() * categories.Celeste.src.length)], slot_classification]
     }
 
     if (slot_classification == 'horse') {
-        return [categories[Horses].src[Math.floor(Math.random() * categories[Horses].src.length)], slot_classification]
+        return [categories.Horses.src[Math.floor(Math.random() * categories.Horses.src.length)], slot_classification]
     }
 
     //must be putz
@@ -86,7 +86,7 @@ function grab_outcome() {
 }
 
 //UI code
-let items = [].concat(categories[Celeste].src, categories[Horses].src, categories[Putz].src)
+let items = [].concat(categories.Celeste.src, categories.Horses.src, categories.Putz.src)
 
 const doors = document.querySelectorAll(".door");
 document.querySelector("#spinner").addEventListener("click", spin_handle);
