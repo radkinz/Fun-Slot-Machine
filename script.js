@@ -86,7 +86,7 @@ function grab_outcome() {
 }
 
 //UI code
-let items = [].concat(celeste, horse, putz)
+let items = [].concat(categories[Celeste].src, categories[Horses].src, categories[Putz].src)
 
 const doors = document.querySelectorAll(".door");
 document.querySelector("#spinner").addEventListener("click", spin_handle);
