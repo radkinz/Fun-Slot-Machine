@@ -167,7 +167,7 @@ function init(firstInit = true, groups = 1, duration = 1, slot_result_names = []
                 { once: true }
             );
         }
-        console.log(poo, "HELLLOOOO");
+        console.log(pool, "HELLLOOOO");
 
         for (let i = pool.length - 1; i >= 0; i--) {
             const box = document.createElement("div");
