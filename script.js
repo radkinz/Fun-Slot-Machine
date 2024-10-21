@@ -62,27 +62,27 @@ function grab_outcome() {
     let names = [row_info[0][0], row_info[1][0], row_info[2][0]]
     let classes = [row_info[0][1], row_info[1][1], row_info[2][1]]
 
-    total = 0
+    saying = ""
 
     //check if there is a 3 match
     if (classes.join() == 'putz,putz,putz') {
-        total += 250
+        saying = "You won putz!"
     }
 
     if (classes.join() == 'horse,horse,horse') {
-        total += 200
+        saying = "NEIGHHHHHHHHHH!"
     }
 
     if (classes.join() == 'celeste,celeste,celeste') {
-        total += 200
+        saying = "You won celester! Now you owe celeste a chipotle gift card!"
     }
 
     //check if you have a duplicate
     if (names[0] == names[1] || names[0] == names[2] || names[1] == names[2]) {
-        total += 300
+        saying = "Looks like your seeing double!"
     }
 
-    return [names, total]
+    return [names, saying]
 }
 
 //UI code
@@ -118,7 +118,7 @@ async function spin_handle() {
     await init()
     //start animation
     await spin(result[0])
-    alert("You win " + result[1] + " dollars!")
+    alert(result[1])
 }
 
 function init(firstInit = true, groups = 1, duration = 1, slot_result_names = []) {
