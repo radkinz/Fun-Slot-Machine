@@ -1,7 +1,7 @@
 //potential slot outcomes per column
 const outcomes = {
-    celeste: 30,
-    horse: 40,
+    celeste: 20,
+    horse: 50,
     putz: 30
 }
 
@@ -79,7 +79,7 @@ function grab_outcome() {
 
     //check if you have a duplicate
     if (names[0] == names[1] || names[0] == names[2] || names[1] == names[2]) {
-        saying = "Looks like your seeing double!"
+        saying = "Looks like you're seeing double!"
     }
 
     return [names, saying]
@@ -175,8 +175,8 @@ function init(firstInit = true, groups = 1, duration = 1, slot_result_names = []
             box.classList.add("box");
             box.style.width = door.clientWidth + "px";
             box.style.height = door.clientHeight + "px";
-            if (i == 0) {
-                box.style.innerHTML = pool[i];
+            if (i == 0) { 
+                box.innerHTML = pool[i];
             }
             if (pool.length > 1 && i != 0) {
                 image_cont.classList.add("imageContainer")
