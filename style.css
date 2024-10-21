@@ -44,8 +44,8 @@ background-color: black;
   background: #fafafa;
   box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.4) inset;
 
-  width: 80px;
-  height: 80px;
+  width: 200px;
+  height: 200px;
   overflow: hidden;
 
   border-radius: 1ex;
@@ -54,8 +54,8 @@ background-color: black;
 
 .imageContainer {
   overflow: hidden;
-  width: 70px;
-  height: 70px;
+  width: 150px;
+  height: 150px;
   display: flex;
   justify-content: center;
 }
@@ -85,4 +85,26 @@ button {
   text-transform: uppercase;
 
   margin: 0 0.2rem 0 0.2rem;
+}
+
+@media all and (max-width: 600px){
+  .imageContainer {
+    overflow: hidden;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .door {
+    background: #fafafa;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.4) inset;
+  
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+  
+    border-radius: 1ex;
+    margin: 1ch;
+  }
 }
