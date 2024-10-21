@@ -175,6 +175,9 @@ function init(firstInit = true, groups = 1, duration = 1, slot_result_names = []
             box.classList.add("box");
             box.style.width = door.clientWidth + "px";
             box.style.height = door.clientHeight + "px";
+            if (pool == 0) {
+                box.style.innerHTML = pool[i];
+            }
             if (pool.length > 1 && i != 0) {
                 image_cont.classList.add("imageContainer")
                 image_cont.innerHTML = "<img src='./images/" + pool[i] + "'>"; //add image
