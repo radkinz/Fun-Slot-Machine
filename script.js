@@ -64,6 +64,11 @@ function grab_outcome() {
 
     saying = "oops you lose!"
 
+    //check if you have a duplicate
+    if (names[0] == names[1] || names[0] == names[2] || names[1] == names[2]) {
+        saying = "Looks like you're seeing double!"
+    }
+
     //check if there is a 3 match
     if (classes.join() == 'putz,putz,putz') {
         saying = "You won putz!"
@@ -75,11 +80,6 @@ function grab_outcome() {
 
     if (classes.join() == 'celeste,celeste,celeste') {
         saying = "You won celester! Now you owe celeste a chipotle gift card!"
-    }
-
-    //check if you have a duplicate
-    if (names[0] == names[1] || names[0] == names[2] || names[1] == names[2]) {
-        saying = "Looks like you're seeing double!"
     }
 
     return [names, saying]
