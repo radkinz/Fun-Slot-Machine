@@ -1,165 +1,33 @@
 //potential slot outcomes per column
 const outcomes = {
-    Fig: 2,
-    Esti: 5,
-    boomer: 30,
-    prefrosh: 63
+    celeste: 20,
+    horse: 30,
+    putz: 50
 }
 
-//define characters + info
-const characters = {
-    Fig: {
-        classification: 'Fig',
-        src: 'Fig.png',
+//define categories
+const categories = {
+    Celeste: {
+        classification: 'celeste',
+        src: ["celeste1.PNG", "celeste2.jpg", "celeste3.jpg"],
         bonus: () => {
-            console.log("FIGGGGGG")
+            console.log("celeste")
         }
     },
-    Esti: {
-        classification: 'Esti',
-        src: 'Esti.png',
+
+    Horses: {
+        classification: 'horse',
+        src: ["gage_horse.jpeg", "pria_horse.jpeg", "angie_horse.jpeg", "spruce_horse.jpeg"],
         bonus: () => {
-            console.log("ESTIIIIII")
+            console.log("horse")
         }
     },
-    Luna: {
-        classification: 'boomer',
-        src: 'Luna.png',
+
+    Putz: {
+        classification: 'putz',
+        src: ["putzLogo.png"],
         bonus: () => {
-            console.log("LUNAAAA")
-        }
-    },
-    John: {
-        classification: 'boomer',
-        src: 'John.png',
-        bonus: () => {
-            console.log("LUNAAAA")
-        }
-    },
-    Eldar: {
-        classification: 'boomer',
-        src: 'Eldar.png',
-        bonus: () => {
-            console.log("ELDARRRRRRRR")
-        }
-    },
-    Andi: {
-        classification: 'boomer',
-        src: 'Andi.png',
-        bonus: () => {
-            console.log("ANDIIIIII")
-        }
-    },
-    Anhad: {
-        classification: 'boomer',
-        src: 'Anhad.png',
-        bonus: () => {
-            console.log("ANHADDDDDD")
-        }
-    },
-    Mu: {
-        classification: 'boomer',
-        src: 'Mu.png',
-        bonus: () => {
-            console.log("MUUUU")
-        }
-    },
-    Alwinfy: {
-        classification: 'boomer',
-        src: 'Alwinfy.png',
-        bonus: () => {
-            console.log("Alwinfy")
-        }
-    },
-    Jinhee: {
-        classification: 'prefrosh',
-        src: 'Jinhee.png',
-        bonus: () => {
-            console.log("APPLEEE")
-        }
-    },
-    Reagan: {
-        classification: 'prefrosh',
-        src: 'Reagan.gif',
-        bonus: () => {
-            console.log("REAGANNNNNN")
-        }
-    },
-    Twin: {
-        classification: 'prefrosh',
-        src: 'Twin.png',
-        bonus: () => {
-            console.log("TWINNNNNNNNN")
-        }
-    },
-    Bob: {
-        classification: 'prefrosh',
-        src: 'Bob.png',
-        bonus: () => {
-            console.log("BOBBBBBB")
-        }
-    },
-    Petru: {
-        classification: 'prefrosh',
-        src: 'Petru.png',
-        bonus: () => {
-            console.log("PETRUUUUUUUUUU")
-        }
-    },
-    Hector: {
-        classification: 'prefrosh',
-        src: 'Hector.png',
-        bonus: () => {
-            console.log("HECTOESSSSSSSSSSSSS ;)")
-        }
-    },
-    Bread: {
-        classification: 'prefrosh',
-        src: 'Bread.png',
-        bonus: () => {
-            console.log("BREADDDDD")
-        }
-    },
-    Arthur: {
-        classification: 'prefrosh',
-        src: 'Arthur.png',
-        bonus: () => {
-            console.log("ARTHURRRRR")
-        }
-    },
-    Annika: {
-        classification: 'prefrosh',
-        src: 'Annika.png',
-        bonus: () => {
-            console.log("ANNIKA")
-        }
-    },
-    Woooo: {
-        classification: 'boomer',
-        src: 'woo.gif',
-        bonus: () => {
-            console.log("WOOOOOOOOOOO")
-        }
-    },
-    Maggie: {
-        classification: 'prefrosh',
-        src: 'Maggie.png',
-        bonus: () => {
-            console.log("MAGGGSSSSS")
-        }
-    },
-    Alan: {
-        classification: 'boomer',
-        src: 'Alan.jpg',
-        bonus: () => {
-            console.log("ALANNNNN")
-        }
-    },
-    Jebby: {
-        classification: 'boomer',
-        src: 'Jebby.png',
-        bonus: () => {
-            console.log("JEBBYYYYYY")
+            console.log("putz")
         }
     }
 }
@@ -172,33 +40,21 @@ for (const key in outcomes) {
     }
 }
 
-//generate boomer and prefrosh list
-let boomers = []
-let prefrosh = []
-
-for (const key in characters) {
-    if (characters[key].classification == "boomer") {
-        boomers.push(key)
-    } else if (characters[key].classification == "prefrosh") {
-        prefrosh.push(key)
-    }
-}
-
 //grab character info [name, class]
 function grab_slot() {
     //grab classification
     let slot_classification = possibilities[Math.floor(Math.random() * possibilities.length)];
 
-    if (slot_classification == 'boomer') {
-        return [boomers[Math.floor(Math.random() * boomers.length)], slot_classification]
+    if (slot_classification == 'celeste') {
+        return [categories[Celeste].src[Math.floor(Math.random() * categories[Celeste].src.length)], slot_classification]
     }
 
-    if (slot_classification == 'prefrosh') {
-        return [prefrosh[Math.floor(Math.random() * prefrosh.length)], slot_classification]
+    if (slot_classification == 'horse') {
+        return [categories[Horses].src[Math.floor(Math.random() * categories[Horses].src.length)], slot_classification]
     }
 
-    //must be a special character like fig or esti
-    return [slot_classification, slot_classification]
+    //must be putz
+    return ["putzLogo.png", slot_classification]
 }
 
 function grab_outcome() {
@@ -208,36 +64,16 @@ function grab_outcome() {
 
     total = 0
 
-    //check if rare character
-    if (classes.includes("Fig")) {
-        //grab occurance of Fig
-        let counter = -1
-        for (let i = 0; i < classes.length; i++) {
-            if (classes[i] == "Fig") {
-                counter += 1
-            }
-        }
-
-        total = 700 + counter*100
-    }
-
-    if (classes.includes("Esti")) {
-        let counter = -1
-        for (let i = 0; i < classes.length; i++) {
-            if (classes[i] == "Esti") {
-                counter += 1
-            }
-        }
-
-        total = 700 + counter*100
-    }
-
     //check if there is a 3 match
-    if (classes.join() == 'boomer,boomer,boomer') {
+    if (classes.join() == 'putz,putz,putz') {
         total += 250
     }
 
-    if (classes.join() == 'prefrosh,prefrosh,prefrosh') {
+    if (classes.join() == 'horse,horse,horse') {
+        total += 200
+    }
+
+    if (classes.join() == 'celeste,celeste,celeste') {
         total += 200
     }
 
