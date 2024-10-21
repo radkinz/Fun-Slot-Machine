@@ -178,10 +178,10 @@ function init(firstInit = true, groups = 1, duration = 1, slot_result_names = []
             box.innerHTML += pool[i]
             if (pool.length > 1 && i != 0) {
                 image_cont.classList.add("imageContainer")
-                image_cont.innerHTML = "<img src='./images/" + categories[pool[i]].src + "'>"; //add image
-                if (categories[pool[i]].classification == "celeste") {
+                image_cont.innerHTML = "<img src='./images/" + pool[i] + "'>"; //add image
+                if (categories.Celeste.src.includes(pool[i])) {
                     box.style.color = "purple";
-                } else if (categories[pool[i]].classification == "horse") {
+                } else if (categories.Horses.src.includes(pool[i])) {
                     box.style.color = "#2acdff";
                 } else {
                     box.style.color = "#ffaa18";
